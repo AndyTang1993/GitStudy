@@ -1,2 +1,4 @@
-﻿Git is a version control system
-Git is free
+﻿public class TimeUtils{
+	System.out.print("hello")
+	
+}
