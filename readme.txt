@@ -9,3 +9,4 @@ Git命令：
 2、Git库中的文件修改与上传
 git status（查看文件状态：是否有变化）
 git diff（查看具体修改了什么内容）
+git变了
