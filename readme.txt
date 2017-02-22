@@ -33,4 +33,17 @@ git rm（删除，之后再commit）
 ssh-keygen -t rsa -C "youremail@example.com"（创建SSH KEY）
 GitHup网站建远程库
 git remote add origin SSH地址（通过SSH关联本地与远程库）
-$ git push origin master（把本地master分支的最新修改推送至GitHup）
+git push -u origin master（第一次推送master分支的所有内容）
+git push origin master（把本地master分支的最新修改推送至GitHup）
+
+git clone SSH地址（本地文件夹下，clone GitHup远程库中的项目）
+
+7、分支管理
+$ git branch xxx （创建分支）
+$ git checkout xxx（切换到分支）
+简写：git checkout -b xxx（创建并切换）
+
+git branch（查看当前分支,带*）
+git merge（用于合并指定分支到当前分支。）
+注：Fast-forward快进模式
+git branch -d xxx（删除分支）
