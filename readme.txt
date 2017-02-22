@@ -47,3 +47,10 @@ git branch（查看当前分支,带*）
 git merge（用于合并指定分支到当前分支。）
 注：Fast-forward快进模式
 git branch -d xxx（删除分支）
+
+注：分支同时有内容修改会冲突。
+git status能查看冲突，先手动解决冲突，再提交
+git log --graph 或git log --graph --pretty=oneline --abbrev-commit（看到分支合并图）
+
+git merge --no-ff -m "注释" xxx
+注：合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
