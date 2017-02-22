@@ -24,3 +24,13 @@ cat 文件名（显示指向版本的内容）
 git checkout -- file（丢弃工作区的修改）
 
 注：git checkout -- file命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令
+
+5、删除
+git rm（删除，之后再commit）
+误删可以通过git checkout -- file撤销
+
+6、远程仓库
+ssh-keygen -t rsa -C "youremail@example.com"（创建SSH KEY）
+GitHup网站建远程库
+git remote add origin SSH地址（通过SSH关联本地与远程库）
+$ git push origin master（把本地master分支的最新修改推送至GitHup）
