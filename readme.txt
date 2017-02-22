@@ -54,3 +54,26 @@ git log --graph 或git log --graph --pretty=oneline --abbrev-commit（看到分�
 
 git merge --no-ff -m "注释" xxx
 注：合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+
+8、bug分支和Feature分支（新功能分支）
+情景：正在分支上开发，需要紧急解决一个bug，在主分支或开发分支上创建新的bug分支。
+git stash（当前开发的进度保留，并隐藏）
+git stash list（查看之前被隐藏的工作区）
+
+git stash apply恢复，stash内容并不删除，用git stash drop来删除；
+git stash pop，恢复的同时把stash内容也删了：
+git stash apply stash@{0}（多次stash，用编号选择恢复）
+
+9、多人协作
+git remote -v（查看远程库的信息：显示推送和提取权限）
+模式：
+1、首先，可以试图用git push origin branch-name推送自己的修改；
+
+2、如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+3、如果合并有冲突，则解决冲突，并在本地提交；
+
+4、没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+5、如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
