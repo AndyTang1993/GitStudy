@@ -77,3 +77,35 @@ git remote -v（查看远程库的信息：显示推送和提取权限）
 
 5、如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
 
+10、标签管理（tag）
+git tag xxx （打一个新标签）
+git tag（查看所有标签）
+注：git tag xxx commitid（根据commitid打标签）
+带说明的标签如下：
+例：git tag -a v0.1 -m "说明" 3628164
+git show <tagname>（查看标签信息）
+git tag -s <tagname> -m "说明"（用PGP签名打标签）
+
+git tag -d <tagname>（删除标签）
+git push origin <tagname>（推送某个标签到远程）
+git push origin --tags（一次性推送全部尚未推送到远程的本地标签）
+git tag -d <tagname>（删除一个本地标签）
+git push origin :refs/tags/<tagname>（删除一个远程标签）
+
+11、自定义Git
+git config --global color.ui true（Git显示颜色）
+忽略特殊文件：https://github.com/github/gitignore
+1、忽略操作系统自动生成的文件，比如缩略图等；
+2、忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
+3、忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
+
+忽略某些文件时，需要编写.gitignore；
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+git add -f xxx（强制添加到git）
+
+12、命令别名
+git config --global alias.xx <原名>（简写命令）
+git config --global alias.last 'log -1'（显示最后一次提交信息改为last）
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"（查看log）
+
+Git配置文件都放在.git/config，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可
