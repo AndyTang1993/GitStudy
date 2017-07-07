@@ -55,6 +55,14 @@ git log --graph 或git log --graph --pretty=oneline --abbrev-commit（看到分�
 git merge --no-ff -m "注释" xxx
 注：合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
 
+注：切换分支时，保证当前分支已经没有变动。
+如果主分支bug已经改完，开发分支要在这个基础上继续开发，需要同步到开发分支上面，命令行如下：
+（1）先切换到开发分支 git checkout name
+（2）git rebase 主分支名
+（3）此时如果有冲突，需要先解决冲突，然后 git add -u
+（4）git rebase --continue 
+（5）完成，此时，开发分支就跟主分支没有差别了
+
 8、bug分支和Feature分支（新功能分支）
 情景：正在分支上开发，需要紧急解决一个bug，在主分支或开发分支上创建新的bug分支。
 git stash（当前开发的进度保留，并隐藏）
